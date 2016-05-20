@@ -19,6 +19,10 @@ public class Filter {
 	public static void insertStopWord(String[] sws){
 		StopWords.addAll(Arrays.asList(sws));
 	}
+	// 清除停用词词典
+	public static void clearStopWord(){
+		StopWords.clear();
+	}
 	// 添加需要提取的词性
 	public static void insertNaturesInclude(String[] nis){
 		NaturesInclude.addAll(Arrays.asList(nis));

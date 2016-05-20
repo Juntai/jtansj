@@ -3,8 +3,10 @@ package org.jtansj.analysis;
 //import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.ansj.domain.Term;
@@ -53,12 +55,17 @@ public class test {
 	    /* 测试：更改用户词典设置是否立即生效；
 		 * 结果：立即生效。
 		 * */
-		List<Term> parse = NlpAnalysis.parse("ansj分词是一个好分词软件。");
-	    System.out.println(parse);
-		MyStaticValue.userLibrary = "library/my.dic";
-		UserDefineLibrary.loadLibrary(UserDefineLibrary.FOREST, MyStaticValue.userLibrary);
-		List<Term> parse1 = NlpAnalysis.parse("ansj分词是一个好分词软件。");
-	    System.out.println(parse1);
+		Set<String> StopWords = new HashSet<String>();
+		System.out.println(StopWords.isEmpty());
+		StopWords.clear();
+		System.out.println(StopWords.isEmpty());
+//		List<Term> parse = NlpAnalysis.parse("ansj分词是一个好分词软件。");
+//	    System.out.println(parse);
+//		MyStaticValue.userLibrary = "library/my.dic";
+//		UserDefineLibrary.clear(); // 清空用户词典
+//		UserDefineLibrary.loadLibrary(UserDefineLibrary.FOREST, MyStaticValue.userLibrary);
+//		List<Term> parse1 = NlpAnalysis.parse("ansj分词是一个好分词软件。");
+//	    System.out.println(parse1);
 	
 	    
 		// TODO Auto-generated method stub
