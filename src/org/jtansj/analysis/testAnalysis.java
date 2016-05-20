@@ -21,11 +21,11 @@ public class testAnalysis {
 
 		return Transfer.transfer(rawResult);		
 	}
-	public static String parseList(String str, String method, List<String> stopWords, List<String> naturesInclude, List<String> naturesRemove){
-		
-		String result = JtAnalysis.parse(str, method, stopWords.toArray(new String[0]), naturesInclude.toArray(new String[0]), naturesRemove.toArray(new String[0]));
-		return result;
-	}
+//	public static String parseList(String str, String method, List<String> stopWords, List<String> naturesInclude, List<String> naturesRemove){
+//		
+//		String result = JtAnalysis.parse(str, method, stopWords.toArray(new String[0]), naturesInclude.toArray(new String[0]), naturesRemove.toArray(new String[0]));
+//		return result;
+//	}
 	public static String getListContent(List<String> stopWords){
 		String result = stopWords.getClass().getName() + ":";
 		for(String term: stopWords){

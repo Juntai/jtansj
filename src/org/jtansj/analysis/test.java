@@ -1,6 +1,9 @@
 package org.jtansj.analysis;
 
 //import java.util.LinkedList;
+import static org.ansj.util.MyStaticValue.LIBRARYLOG;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -15,8 +18,13 @@ import org.ansj.recognition.NatureRecognition;
 import org.ansj.splitWord.analysis.*;
 import org.ansj.util.FilterModifWord;
 import org.ansj.util.MyStaticValue;
+import org.jtansj.util.AmbiguityLibrary;
+import org.jtansj.util.AnsjOptions;
 import org.jtansj.util.Filter;
 import org.jtansj.util.Transfer;
+import org.jtansj.util.UserLibrary;
+import org.nlpcn.commons.lang.tire.library.Library;
+import org.nlpcn.commons.lang.util.StringUtil;
 
 
 public class test {
@@ -27,10 +35,12 @@ public class test {
 		 * */
 //		List<Term> parse = NlpAnalysis.parse("毛小平是我们的伟大领袖。");
 //	    System.out.println(parse);
-//		MyStaticValue.isNameRecognition = false;
+////		MyStaticValue.isNameRecognition = false;
+//	    AnsjOptions.setIsNameRec(false);
 //		List<Term> parse1 = NlpAnalysis.parse("毛小平是我们的伟大领袖。");
 //	    System.out.println(parse1);
-//		MyStaticValue.isNameRecognition = true;
+////		MyStaticValue.isNameRecognition = true;
+//		AnsjOptions.setIsNameRec(true);
 //		List<Term> parse2 = NlpAnalysis.parse("毛小平是我们的伟大领袖。");
 //	    System.out.println(parse2);
 	    
@@ -39,34 +49,43 @@ public class test {
 		 * */
 //		List<Term> parse = ToAnalysis.parse("小明买了五十五斤梨。");
 //	    System.out.println(parse);
-//		MyStaticValue.isNumRecognition = false;
-//		MyStaticValue.isQuantifierRecognition = true;
+////		MyStaticValue.isNumRecognition = false;
+////		MyStaticValue.isQuantifierRecognition = true;
+//	    AnsjOptions.setIsNumRec(false);
+//	    AnsjOptions.setIsQuantifierRec(true);
 //		List<Term> parse1 = ToAnalysis.parse("小明买了五十五斤梨。");
 //	    System.out.println(parse1);
-//		MyStaticValue.isNumRecognition = false;
-//		MyStaticValue.isQuantifierRecognition = false;
+////		MyStaticValue.isNumRecognition = false;
+////		MyStaticValue.isQuantifierRecognition = false;
+//	    AnsjOptions.setIsNumRec(false);
+//	    AnsjOptions.setIsQuantifierRec(false);
 //		List<Term> parse2 = ToAnalysis.parse("小明买了五十五斤梨。");
 //	    System.out.println(parse2);
-//		MyStaticValue.isNumRecognition = true;
-//		MyStaticValue.isQuantifierRecognition = false;
+////		MyStaticValue.isNumRecognition = true;
+////		MyStaticValue.isQuantifierRecognition = false;
+//	    AnsjOptions.setIsNumRec(true);
+//	    AnsjOptions.setIsQuantifierRec(false);
 //		List<Term> parse3 = ToAnalysis.parse("小明买了五十五斤梨。");
 //	    System.out.println(parse3);
-		
+//		
 	    /* 测试：更改用户词典设置是否立即生效；
 		 * 结果：立即生效。
 		 * */
-		Set<String> StopWords = new HashSet<String>();
-		System.out.println(StopWords.isEmpty());
-		StopWords.clear();
-		System.out.println(StopWords.isEmpty());
-//		List<Term> parse = NlpAnalysis.parse("ansj分词是一个好分词软件。");
-//	    System.out.println(parse);
+//		Set<String> StopWords = new HashSet<String>();
+//		System.out.println(StopWords.isEmpty());
+//		StopWords.clear();
+//		System.out.println(StopWords.isEmpty());
+		List<Term> parse = NlpAnalysis.parse("ansj分词是一个好分词软件。");
+	    System.out.println(parse);
 //		MyStaticValue.userLibrary = "library/my.dic";
+	    UserLibrary.set("library/my.dic");
 //		UserDefineLibrary.clear(); // 清空用户词典
 //		UserDefineLibrary.loadLibrary(UserDefineLibrary.FOREST, MyStaticValue.userLibrary);
-//		List<Term> parse1 = NlpAnalysis.parse("ansj分词是一个好分词软件。");
-//	    System.out.println(parse1);
-	
+		UserLibrary.load();
+	    List<Term> parse1 = ToAnalysis.parse("ansj分词是一个好分词软件。");
+	    System.out.println(parse1);
+	    
+	    
 	    
 		// TODO Auto-generated method stub
 //		String[] stringarr = new String[]{"a","b"};
@@ -113,6 +132,16 @@ public class test {
 //	    // 用户自定义词典优先分词
 //	    List<Term> parse5 = DicAnalysis.parse("让战士们过一个欢乐祥和的新春佳节。");
 //	    System.out.println(parse5);
+//	    List<Term> parse5 = NlpAnalysis.parse("李民工作。");
+//	    System.out.println(parse5);
+//		MyStaticValue.ambiguityLibrary = "library/Myambiguity.dic";
+////		UserDefineLibrary.ambiguityForest = null;
+////		initAmbiguityLibrary();
+//		AmbiguityLibrary.loadAmbiguityLibrary();
+//	    List<Term> parse6 = NlpAnalysis.parse("李民工作。");
+//	    System.out.println(parse6);
+		
 	}
+	
 
 }
