@@ -23,6 +23,14 @@ public class Filter {
 	public static void clearStopWord(){
 		StopWords.clear();
 	}
+	// 停用词典是否为空
+	public static Boolean stopWordsIsEmpty(){
+		return StopWords.isEmpty();
+	}
+	// 当前的停用词
+	public static String[] showStopWords(){
+		return StopWords.toArray(new String[0]);
+	}
 	// 添加需要提取的词性
 	public static void insertNaturesInclude(String[] nis){
 		NaturesInclude.addAll(Arrays.asList(nis));
