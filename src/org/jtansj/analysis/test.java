@@ -30,6 +30,16 @@ import org.nlpcn.commons.lang.util.StringUtil;
 public class test {
 
 	public static void main(String[] args) {	
+		//
+		String str = "让战士们度过一个快乐祥和的春节。";
+		String[] naturesInclude = new String[0];
+		String[] naturesRemove = new String[]{"w"};
+		List<Term> parse = NlpAnalysis.parse(str);
+	    System.out.println(parse);
+		String[] result = JtAnalysis.parse(str, "nlp", false, naturesInclude, naturesRemove);
+		System.out.println(StringUtils.join(result, " "));
+		
+		
 		/* 测试：更改StaticValues.isNameRecognition是否立即生效；
 		 * 结果：立即生效。
 		 * */
@@ -75,15 +85,15 @@ public class test {
 //		System.out.println(StopWords.isEmpty());
 //		StopWords.clear();
 //		System.out.println(StopWords.isEmpty());
-		List<Term> parse = NlpAnalysis.parse("ansj分词是一个好分词软件。");
-	    System.out.println(parse);
+//		List<Term> parse = NlpAnalysis.parse("ansj分词是一个好分词软件。");
+//	    System.out.println(parse);
 //		MyStaticValue.userLibrary = "library/my.dic";
-	    UserLibrary.set("library/my.dic");
+//	    UserLibrary.set("library/my.dic");
 //		UserDefineLibrary.clear(); // 清空用户词典
 //		UserDefineLibrary.loadLibrary(UserDefineLibrary.FOREST, MyStaticValue.userLibrary);
-		UserLibrary.load();
-	    List<Term> parse1 = ToAnalysis.parse("ansj分词是一个好分词软件。");
-	    System.out.println(parse1);
+//		UserLibrary.load();
+//	    List<Term> parse1 = ToAnalysis.parse("ansj分词是一个好分词软件。");
+//	    System.out.println(parse1);
 	    
 	    
 	    
